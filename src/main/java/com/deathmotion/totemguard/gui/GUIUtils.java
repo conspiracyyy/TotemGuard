@@ -6,7 +6,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// utils
 public class GUIUtils {
     public static ItemStack createItem(Material material, String name, List<String> lore) {
         ItemStack item = new ItemStack(material);
