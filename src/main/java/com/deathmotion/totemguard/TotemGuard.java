@@ -25,6 +25,8 @@ import com.deathmotion.totemguard.events.lunarclient.ApolloPlayerListener;
 import com.deathmotion.totemguard.events.packets.CheckManagerPacketListener;
 import com.deathmotion.totemguard.events.packets.PacketPingListener;
 import com.deathmotion.totemguard.events.packets.PacketPlayerJoinQuit;
+import com.deathmotion.totemguard.gui.GUIListener;
+import com.deathmotion.totemguard.gui.GUIManager;
 import com.deathmotion.totemguard.manager.*;
 import com.deathmotion.totemguard.messenger.MessengerService;
 import com.deathmotion.totemguard.redis.RedisService;
@@ -52,6 +54,7 @@ public final class TotemGuard extends JavaPlugin {
     private PlayerDataManager playerDataManager;
     private RedisService redisService;
     private UpdateChecker updateChecker;
+    private GUIManager guiManager;
 
     public TotemGuard() {
         instance = this;
@@ -74,6 +77,7 @@ public final class TotemGuard extends JavaPlugin {
         playerDataManager = new PlayerDataManager(this);
         redisService = new RedisService(this);
         updateChecker = new UpdateChecker(this);
+        guiManager = new GUIManager(this);
 
         TotemGuardProvider.setAPI(new TotemGuardAPIImpl(this));
 
@@ -82,6 +86,7 @@ public final class TotemGuard extends JavaPlugin {
         PacketEvents.getAPI().getEventManager().registerListener(new CheckManagerPacketListener());
 
         getServer().getPluginManager().registerEvents(new CheckManagerBukkitListener(), this);
+        getServer().getPluginManager().registerEvents(new GUIListener(this, guiManager), this);
 
         // Needed for the Lunar Client specific check
         new ApolloPlayerListener(this);

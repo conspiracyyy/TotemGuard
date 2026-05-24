@@ -88,3 +88,6 @@ permissions:
   TotemGuard.Debug:
     description: Allows the player to see debug messages.
     default: false
+  TotemGuard.GUI:
+    description: Allows the player to use the TotemGuard GUI.
+    default: op

@@ -37,7 +37,8 @@ public final class CommandBuilder {
             new TrimCommand(TotemGuard.getInstance()),
             new ProfileCommand(TotemGuard.getInstance()),
             new StatsCommand(TotemGuard.getInstance()),
-            new ReloadCommand(TotemGuard.getInstance())
+            new ReloadCommand(TotemGuard.getInstance()),
+            new GuiCommand(TotemGuard.getInstance())
     );
 
     public CommandBuilder(LegacyPaperCommandManager<CommandSender> commandManager) {

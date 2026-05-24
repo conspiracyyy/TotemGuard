@@ -31,7 +31,7 @@ public class Messages {
     private Formatter format = Formatter.LEGACY;
 
     @Comment("\nPrefix: The prefix for all messages.")
-    private String prefix = "&6&lTG &8»";
+    private String prefix = "&#FF0000&lTOTEMGUARD &r&7»";
 
     @Comment("\nAlert Format: The format for all alerts.")
     private AlertFormat alertFormat = new AlertFormat();
