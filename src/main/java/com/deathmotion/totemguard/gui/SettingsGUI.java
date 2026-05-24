@@ -43,12 +43,7 @@ public class SettingsGUI {
                 "",
                 "&8Alerts Enabled: " + (settings.isAlertsEnabled() ? "#0aff35&lENABLED" : "#ff0000&lDISABLED"),
                 "",
-<<<<<<< HEAD
                 "#3962d4⏵ &fClick to toggle! #3962d4⏴"
-=======
-                "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
-            //rhino toasterino
->>>>>>> 0083d75ba281bef9522cc3fb6041bd5246715357
         );
         ItemStack alertsButton = GUIUtils.createItem(Material.SPYGLASS, GUIUtils.color("#00B3FF&l🌊 ALERTS"), alertsLore);
         inventory.setItem(22, alertsButton);
