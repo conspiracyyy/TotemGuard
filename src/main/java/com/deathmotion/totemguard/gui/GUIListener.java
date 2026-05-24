@@ -6,7 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-
+// just the listener
 public class GUIListener implements Listener {
     private final TotemGuard plugin;
     private final GUIManager guiManager;
