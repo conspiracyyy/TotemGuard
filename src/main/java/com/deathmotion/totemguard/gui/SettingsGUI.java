@@ -25,67 +25,63 @@ public class SettingsGUI {
     }
 
     private void createInventory() {
-        inventory = Bukkit.createInventory(null, 54, GUIUtils.color("&#00B3FF&l🌊 SETTINGS"));
-
-        for (int i = 0; i < 54; i++) {
-            inventory.setItem(i, GUIUtils.createBlankPane());
-        }
+        inventory = Bukkit.createInventory(null, 54, GUIUtils.color("#00B3FF&l🌊 SETTINGS"));
 
         Settings settings = plugin.getConfigManager().getSettings();
         Checks checks = plugin.getConfigManager().getChecks();
 
         List<String> debugLore = Arrays.asList(
                 "",
-                "&8Debug Mode: " + (settings.isDebug() ? "&#0aff35&lENABLED" : "&#ff0000&lDISABLED"),
+                "&8Debug Mode: " + (settings.isDebug() ? "#0aff35&lENABLED" : "#ff0000&lDISABLED"),
                 "",
-                "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
+                "#3962d4⏵ &fClick to toggle! #3962d4⏴"
         );
-        ItemStack debugButton = GUIUtils.createItem(Material.REDSTONE_BLOCK, GUIUtils.color("&#00B3FF&l🌊 DEBUG MODE"), debugLore);
-        inventory.setItem(10, debugButton);
+        ItemStack debugButton = GUIUtils.createItem(Material.REDSTONE_BLOCK, GUIUtils.color("#00B3FF&l🌊 DEBUG MODE"), debugLore);
+        inventory.setItem(13, debugButton);
 
         List<String> alertsLore = Arrays.asList(
                 "",
-                "&8Alerts Enabled: " + (settings.isAlertsEnabled() ? "&#0aff35&lENABLED" : "&#ff0000&lDISABLED"),
+                "&8Alerts Enabled: " + (settings.isAlertsEnabled() ? "#0aff35&lENABLED" : "#ff0000&lDISABLED"),
                 "",
-                "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
+                "#3962d4⏵ &fClick to toggle! #3962d4⏴"
         );
-        ItemStack alertsButton = GUIUtils.createItem(Material.SPYGLASS, GUIUtils.color("&#00B3FF&l🌊 ALERTS"), alertsLore);
-        inventory.setItem(11, alertsButton);
+        ItemStack alertsButton = GUIUtils.createItem(Material.SPYGLASS, GUIUtils.color("#00B3FF&l🌊 ALERTS"), alertsLore);
+        inventory.setItem(22, alertsButton);
 
         List<String> autoTotemLore = Arrays.asList(
                 "",
-                "&8AutoTotem Checks: " + (checks.getAutoTotemA().isEnabled() ? "&#0aff35&lENABLED" : "&#ff0000&lDISABLED"),
+                "&8AutoTotem Checks: " + (checks.getAutoTotemA().isEnabled() ? "#0aff35&lENABLED" : "#ff0000&lDISABLED"),
                 "",
-                "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
+                "#3962d4⏵ &fClick to toggle! #3962d4⏴"
         );
-        ItemStack autoTotemButton = GUIUtils.createItem(Material.TOTEM_OF_UNDYING, GUIUtils.color("&#00B3FF&l🌊 AUTOTOTEM CHECKS"), autoTotemLore);
-        inventory.setItem(12, autoTotemButton);
+        ItemStack autoTotemButton = GUIUtils.createItem(Material.TOTEM_OF_UNDYING, GUIUtils.color("#00B3FF&l🌊 AUTOTOTEM CHECKS"), autoTotemLore);
+        inventory.setItem(31, autoTotemButton);
 
         List<String> badPacketsLore = Arrays.asList(
                 "",
-                "&8BadPackets Checks: " + (checks.getBadPacketsA().isEnabled() ? "&#0aff35&lENABLED" : "&#ff0000&lDISABLED"),
+                "&8BadPackets Checks: " + (checks.getBadPacketsA().isEnabled() ? "#0aff35&lENABLED" : "#ff0000&lDISABLED"),
                 "",
-                "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
+                "#3962d4⏵ &fClick to toggle! #3962d4⏴"
         );
-        ItemStack badPacketsButton = GUIUtils.createItem(Material.HEAVY_CORE, GUIUtils.color("&#00B3FF&l🌊 BADPACKETS CHECKS"), badPacketsLore);
-        inventory.setItem(13, badPacketsButton);
+        ItemStack badPacketsButton = GUIUtils.createItem(Material.HEAVY_CORE, GUIUtils.color("#00B3FF&l🌊 BADPACKETS CHECKS"), badPacketsLore);
+        inventory.setItem(21, badPacketsButton);
 
         List<String> webhookLore = Arrays.asList(
                 "",
-                "&8Webhooks: " + (plugin.getConfigManager().getWebhooks().getAlert().isEnabled() ? "&#0aff35&lENABLED" : "&#ff0000&lDISABLED"),
+                "&8Webhooks: " + (plugin.getConfigManager().getWebhooks().getAlert().isEnabled() ? "#0aff35&lENABLED" : "#ff0000&lDISABLED"),
                 "",
-                "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
+                "#3962d4⏵ &fClick to toggle! #3962d4⏴"
         );
-        ItemStack webhookButton = GUIUtils.createItem(Material.BEACON, GUIUtils.color("&#00B3FF&l🌊 WEBHOOKS"), webhookLore);
-        inventory.setItem(14, webhookButton);
+        ItemStack webhookButton = GUIUtils.createItem(Material.BEACON, GUIUtils.color("#00B3FF&l🌊 WEBHOOKS"), webhookLore);
+        inventory.setItem(23, webhookButton);
 
         List<String> exitLore = Arrays.asList(
                 "",
                 "&8Exit this GUI",
                 "",
-                "&#3962d4⏵ &fClick here to proceed! &#3962d4⏴"
+                "#3962d4⏵ &fClick here to proceed! #3962d4⏴"
         );
-        ItemStack exitButton = GUIUtils.createItem(Material.BARRIER, GUIUtils.color("&#FF0000&lEXIT"), exitLore);
+        ItemStack exitButton = GUIUtils.createItem(Material.BARRIER, GUIUtils.color("#FF0000&lEXIT"), exitLore);
         inventory.setItem(45, exitButton);
     }
 

@@ -24,11 +24,7 @@ public class FlaggedUsersGUI {
     }
 
     private void createInventory() {
-        inventory = Bukkit.createInventory(null, 54, GUIUtils.color("&#0aff35&l🌊 FLAGGED USERS"));
-
-        for (int i = 0; i < 54; i++) {
-            inventory.setItem(i, GUIUtils.createBlankPane());
-        }
+        inventory = Bukkit.createInventory(null, 54, GUIUtils.color("#0aff35&l🌊 FLAGGED USERS"));
 
         List<TotemPlayer> flaggedPlayers = plugin.getPlayerDataManager().getPlayers().values().stream()
                 .filter(p -> p.getTotalViolations() > 0)
@@ -43,7 +39,7 @@ public class FlaggedUsersGUI {
 
         for (int i = 0; i < flaggedPlayers.size(); i++) {
             TotemPlayer player = flaggedPlayers.get(i);
-            
+
             int row = i / rowSize;
             int col = i % rowSize;
             int slot = startSlot + (row * rowSize) + col;
@@ -54,15 +50,15 @@ public class FlaggedUsersGUI {
             SkullMeta meta = (SkullMeta) head.getItemMeta();
             if (meta != null) {
                 meta.setOwningPlayer(Bukkit.getOfflinePlayer(player.getUniqueId()));
-                meta.setDisplayName(GUIUtils.color("&#0aff35&l🌊 " + player.getName()));
+                meta.setDisplayName(GUIUtils.color("#0aff35&l🌊 " + player.getName()));
 
                 List<String> lore = new ArrayList<>();
                 lore.add("");
-                lore.add("&8Total Violations: &#ff0000&l" + player.getTotalViolations());
-                lore.add("&8Client Brand: &#00B3FF&l" + player.getBrand());
-                lore.add("&8Ping: &#ff7a0a&l" + player.getKeepAlivePing() + "ms");
+                lore.add("&8Total Violations: #ff0000&l" + player.getTotalViolations());
+                lore.add("&8Client Brand: #00B3FF&l" + player.getBrand());
+                lore.add("&8Ping: #ff7a0a&l" + player.getKeepAlivePing() + "ms");
                 lore.add("");
-                lore.add("&#3962d4⏵ &fClick to teleport! &#3962d4⏴");
+                lore.add("#3962d4⏵ &fClick to teleport! #3962d4⏴");
 
                 meta.setLore(lore.stream().map(GUIUtils::color).collect(Collectors.toList()));
                 head.setItemMeta(meta);
@@ -74,9 +70,9 @@ public class FlaggedUsersGUI {
                 "",
                 "&8Exit this GUI",
                 "",
-                "&#3962d4⏵ &fClick here to proceed! &#3962d4⏴"
+                "#3962d4⏵ &fClick here to proceed! #3962d4⏴"
         );
-        ItemStack exitButton = GUIUtils.createItem(Material.BARRIER, GUIUtils.color("&#FF0000&lEXIT"), exitLore);
+        ItemStack exitButton = GUIUtils.createItem(Material.BARRIER, GUIUtils.color("#FF0000&lEXIT"), exitLore);
         inventory.setItem(45, exitButton);
     }
 
