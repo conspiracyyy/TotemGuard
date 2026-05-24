@@ -1,6 +1,7 @@
 package com.deathmotion.totemguard.gui;
 
 import com.deathmotion.totemguard.TotemGuard;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -101,6 +102,29 @@ public class GUIListener implements Listener {
     private void handleFlaggedUsersClick(Player player, String itemName) {
         if (itemName.contains("EXIT")) {
             guiManager.openMainGUI(player);
+        } else if (itemName.contains("🌊")) {
+            // Extract player name from the display name
+            String targetName = itemName.replace("&#0aff35&l🌊 ", "");
+            org.bukkit.entity.Player target = Bukkit.getPlayer(targetName);
+            
+            if (target != null && target.isOnline()) {
+                // Save current gamemode
+                org.bukkit.GameMode previousGamemode = player.getGameMode();
+                
+                // Teleport to target
+                player.teleport(target.getLocation());
+                
+                // Set to spectator mode
+                player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+                
+                player.sendMessage(plugin.getMessengerService().format(
+                    plugin.getMessengerService().getPrefix() + " &#ff7a0aTeleported to " + targetName + " in spectator mode!"
+                ));
+            } else {
+                player.sendMessage(plugin.getMessengerService().format(
+                    plugin.getMessengerService().getPrefix() + " &#ff0000Player " + targetName + " is not online!"
+                ));
+            }
         }
     }
 }

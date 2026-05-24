@@ -12,7 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-// settungtungsahur
+
 public class SettingsGUI {
     private final TotemGuard plugin;
     private final GUIManager guiManager;
@@ -40,7 +40,7 @@ public class SettingsGUI {
                 "",
                 "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
         );
-        ItemStack debugButton = GUIUtils.createItem(Material.REDSTONE_TORCH, GUIUtils.color("&#00B3FF&l🌊 DEBUG MODE"), debugLore);
+        ItemStack debugButton = GUIUtils.createItem(Material.REDSTONE_BLOCK, GUIUtils.color("&#00B3FF&l🌊 DEBUG MODE"), debugLore);
         inventory.setItem(10, debugButton);
 
         List<String> alertsLore = Arrays.asList(
@@ -49,7 +49,7 @@ public class SettingsGUI {
                 "",
                 "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
         );
-        ItemStack alertsButton = GUIUtils.createItem(Material.BELL, GUIUtils.color("&#00B3FF&l🌊 ALERTS"), alertsLore);
+        ItemStack alertsButton = GUIUtils.createItem(Material.SPYGLASS, GUIUtils.color("&#00B3FF&l🌊 ALERTS"), alertsLore);
         inventory.setItem(11, alertsButton);
 
         List<String> autoTotemLore = Arrays.asList(
@@ -67,7 +67,7 @@ public class SettingsGUI {
                 "",
                 "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
         );
-        ItemStack badPacketsButton = GUIUtils.createItem(Material.PAPER, GUIUtils.color("&#00B3FF&l🌊 BADPACKETS CHECKS"), badPacketsLore);
+        ItemStack badPacketsButton = GUIUtils.createItem(Material.HEAVY_CORE, GUIUtils.color("&#00B3FF&l🌊 BADPACKETS CHECKS"), badPacketsLore);
         inventory.setItem(13, badPacketsButton);
 
         List<String> webhookLore = Arrays.asList(
@@ -76,7 +76,7 @@ public class SettingsGUI {
                 "",
                 "&#3962d4⏵ &fClick to toggle! &#3962d4⏴"
         );
-        ItemStack webhookButton = GUIUtils.createItem(Material.ENCHANTED_BOOK, GUIUtils.color("&#00B3FF&l🌊 WEBHOOKS"), webhookLore);
+        ItemStack webhookButton = GUIUtils.createItem(Material.BEACON, GUIUtils.color("&#00B3FF&l🌊 WEBHOOKS"), webhookLore);
         inventory.setItem(14, webhookButton);
 
         List<String> exitLore = Arrays.asList(

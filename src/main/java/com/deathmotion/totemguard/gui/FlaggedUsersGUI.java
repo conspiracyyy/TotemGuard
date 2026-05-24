@@ -36,8 +36,18 @@ public class FlaggedUsersGUI {
                 .limit(45)
                 .collect(Collectors.toList());
 
-        int slot = 0;
-        for (TotemPlayer player : flaggedPlayers) {
+        // Center the player heads in the middle row (slots 13-48)
+        int startSlot = 13;
+        int rowSize = 9;
+        int centerOffset = 4; // Center of a 9-slot row
+
+        for (int i = 0; i < flaggedPlayers.size(); i++) {
+            TotemPlayer player = flaggedPlayers.get(i);
+            
+            int row = i / rowSize;
+            int col = i % rowSize;
+            int slot = startSlot + (row * rowSize) + col;
+
             if (slot >= 45) break;
 
             ItemStack head = new ItemStack(Material.PLAYER_HEAD);
@@ -52,13 +62,12 @@ public class FlaggedUsersGUI {
                 lore.add("&8Client Brand: &#00B3FF&l" + player.getBrand());
                 lore.add("&8Ping: &#ff7a0a&l" + player.getKeepAlivePing() + "ms");
                 lore.add("");
-                lore.add("&#3962d4⏵ &fClick for more info! &#3962d4⏴");
+                lore.add("&#3962d4⏵ &fClick to teleport! &#3962d4⏴");
 
                 meta.setLore(lore.stream().map(GUIUtils::color).collect(Collectors.toList()));
                 head.setItemMeta(meta);
             }
             inventory.setItem(slot, head);
-            slot++;
         }
 
         List<String> exitLore = Arrays.asList(

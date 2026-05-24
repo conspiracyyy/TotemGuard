@@ -18,14 +18,32 @@ public class GUIManager {
     }
 
     public void openMainGUI(Player player) {
+        if (!player.isOp()) {
+            player.sendMessage(plugin.getMessengerService().format(
+                plugin.getMessengerService().getPrefix() + " &#ff0000You must be OP to use the GUI!"
+            ));
+            return;
+        }
         mainGUI.open(player);
     }
 
     public void openSettingsGUI(Player player) {
+        if (!player.isOp()) {
+            player.sendMessage(plugin.getMessengerService().format(
+                plugin.getMessengerService().getPrefix() + " &#ff0000You must be OP to use the GUI!"
+            ));
+            return;
+        }
         settingsGUI.open(player);
     }
 
     public void openFlaggedUsersGUI(Player player) {
+        if (!player.isOp()) {
+            player.sendMessage(plugin.getMessengerService().format(
+                plugin.getMessengerService().getPrefix() + " &#ff0000You must be OP to use the GUI!"
+            ));
+            return;
+        }
         flaggedUsersGUI.open(player);
     }
 
