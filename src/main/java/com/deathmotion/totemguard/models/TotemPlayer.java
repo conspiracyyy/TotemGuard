@@ -164,4 +164,13 @@ public class TotemPlayer implements TotemUser {
             return transactionPing;
         }
     }
+
+    public long getTotalViolations() {
+        if (databasePlayer == null) return 0;
+        try {
+            return TotemGuard.getInstance().getDatabaseProvider().getAlertRepository().countAlertsForPlayer(uniqueId);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
 }

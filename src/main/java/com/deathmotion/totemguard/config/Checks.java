@@ -22,6 +22,7 @@ import com.deathmotion.totemguard.interfaces.AbstractCheckSettings;
 import de.exlll.configlib.Comment;
 import de.exlll.configlib.Configuration;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -106,6 +107,7 @@ public class Checks {
 
     @Configuration
     @Getter
+    @Setter
     public abstract static class CheckSettings implements AbstractCheckSettings {
         private boolean enabled = true;
         private boolean punishable;

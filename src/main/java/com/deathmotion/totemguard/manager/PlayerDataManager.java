@@ -80,4 +80,8 @@ public class PlayerDataManager {
     public Collection<TotemPlayer> getEntries() {
         return playerDataMap.values();
     }
+
+    public ConcurrentHashMap<User, TotemPlayer> getPlayers() {
+        return playerDataMap;
+    }
 }

@@ -21,6 +21,7 @@ package com.deathmotion.totemguard.config;
 import de.exlll.configlib.Comment;
 import de.exlll.configlib.Configuration;
 import lombok.Getter;
+import lombok.Setter;
 
 @SuppressWarnings("FieldMayBeFinal")
 @Configuration
@@ -34,6 +35,7 @@ public class Webhooks {
 
     @Configuration
     @Getter
+    @Setter
     public abstract static class WebhookSettings {
         @Comment("Enable and/or disable the webhook implementation.")
         private boolean enabled = false;

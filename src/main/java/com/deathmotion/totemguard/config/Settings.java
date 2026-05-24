@@ -65,7 +65,12 @@ public class Settings {
     private UpdateChecker updateChecker = new UpdateChecker();
 
     @Comment("\nDebug: Enables debug mode (Advanced Users Only).")
+    @Setter
     private boolean debug = false;
+
+    @Comment("\nAlerts Enabled: Whether alerts are enabled for players.")
+    @Setter
+    private boolean alertsEnabled = true;
 
     @Configuration
     @Getter
