@@ -3,7 +3,7 @@ package com.deathmotion.totemguard.gui;
 import com.deathmotion.totemguard.TotemGuard;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-
+// gui manager
 public class GUIManager {
     private final TotemGuard plugin;
     private final MainGUI mainGUI;
