@@ -1,6 +1,5 @@
 package com.deathmotion.totemguard.gui;
 
-import com.deathmotion.totemguard.TotemGuard;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -45,12 +44,8 @@ public class GUIUtils {
     }
 
     public static String color(String text) {
-        if (TotemGuard.getInstance() != null && TotemGuard.getInstance().getMessengerService() != null) {
-            return TotemGuard.getInstance().getMessengerService().unformat(
-                TotemGuard.getInstance().getMessengerService().format(text)
-            );
-        }
-        // Fallback if plugin isn't loaded yet
-        return LEGACY_SERIALIZER.serialize(LEGACY_SERIALIZER.deserialize(text.replace("&#", "#")));
+        // Replace &# with # for hex codes, then use legacy serializer
+        String processed = text.replace("&#", "#");
+        return LEGACY_SERIALIZER.serialize(LEGACY_SERIALIZER.deserialize(processed));
     }
 }
