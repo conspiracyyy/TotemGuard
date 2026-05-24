@@ -1,5 +1,7 @@
 package com.deathmotion.totemguard.gui;
 
+import com.deathmotion.totemguard.TotemGuard;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -8,13 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 // utils
 public class GUIUtils {
+    private static final LegacyComponentSerializer LEGACY_SERIALIZER = LegacyComponentSerializer.builder()
+            .character('&')
+            .hexCharacter('#')
+            .useUnusualXRepeatedCharacterHexFormat()
+            .hexColors()
+            .build();
+
     public static ItemStack createItem(Material material, String name, List<String> lore) {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         if (meta != null) {
-            meta.setDisplayName(name);
+            meta.setDisplayName(color(name));
             if (lore != null && !lore.isEmpty()) {
-                meta.setLore(lore);
+                meta.setLore(lore.stream().map(GUIUtils::color).toList());
             }
             item.setItemMeta(meta);
         }
@@ -36,6 +45,12 @@ public class GUIUtils {
     }
 
     public static String color(String text) {
-        return text.translateEscapes().replace("&#", "#");
+        if (TotemGuard.getInstance() != null && TotemGuard.getInstance().getMessengerService() != null) {
+            return TotemGuard.getInstance().getMessengerService().unformat(
+                TotemGuard.getInstance().getMessengerService().format(text)
+            );
+        }
+        // Fallback if plugin isn't loaded yet
+        return LEGACY_SERIALIZER.serialize(LEGACY_SERIALIZER.deserialize(text.replace("&#", "#")));
     }
 }
