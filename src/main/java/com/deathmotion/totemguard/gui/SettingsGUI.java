@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
-// settungtungs
+// settungtungsahur
 public class SettingsGUI {
     private final TotemGuard plugin;
     private final GUIManager guiManager;
