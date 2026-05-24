@@ -1,16 +1,9 @@
 <div align="center">
   <h1>TotemGuard</h1>
-  <img alt="Build" src="https://github.com/Bram1903/TotemGuard/actions/workflows/gradle.yml/badge.svg">
-  <img alt="GitHub Release" src="https://img.shields.io/github/release/Bram1903/TotemGuard.svg">
-  <br>
-  <a href="https://www.spigotmc.org/resources/totemguard.119385/"><img alt="SpigotMC" src="https://img.shields.io/badge/-SpigotMC-blue?style=for-the-badge&logo=SpigotMC"></a>
-  <a href="https://modrinth.com/plugin/totemguard"><img alt="TotemGuard" src="https://img.shields.io/badge/-Modrinth-green?style=for-the-badge&logo=Modrinth"></a>
-  <br>
-  <a href="https://discord.deathmotion.com"><img alt="Discord" src="https://img.shields.io/badge/-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"></a>
 </div>
 
 ## Overview
-
+This is the unofficial fork of totem guard with some extra features i added... What did i add? I added a new GUI menu to manage all this in a GUI
 TotemGuard is a lightweight anti-cheat plugin designed to detect players using AutoTotem. It operates asynchronously to
 minimize server impact and offers extensive configurability, enabling server owners to tailor the plugin to their
 specific needs.
@@ -20,37 +13,12 @@ specific needs.
 TotemGuard requires the [PacketEvents](https://modrinth.com/plugin/packetevents) library to function. Ensure it is
 installed on your server.
 
-### Sponsors
-[![JProfiler](docs/jProfiler.png)](https://www.ej-technologies.com/jprofiler)
-
-## Table of Contents
-
-- [Showcase](#showcase)
-- [Supported Platforms & Versions](#supported-platforms--versions)
-- [Checks](#checks)
-- [Features](#features)
-- [Commands](#commands)
-- [Permission Nodes](#permission-nodes)
-- [Installation](#installation)
-- [Compiling From Source](#compiling-from-source)
-    - [Prerequisites](#prerequisites)
-    - [Steps](#steps)
-- [Credits](#credits)
-- [License](#license)
-
-## Showcase
-
-![Demo](docs/showcase/showcase.png)
 
 ## Supported Platforms & Versions
 
 | Platform                        | Supported Versions |
 |---------------------------------|--------------------|
 | Paper, Folia, and related forks | 1.16.5 - 26.1      |
-
-## Checks
-
-For a much more detailed explanation of the checks, see [the wiki!](https://github.com/Bram1903/TotemGuard/wiki/Checks)
 
 ### AutoTotem
 
@@ -91,6 +59,7 @@ For a much more detailed explanation of the checks, see [the wiki!](https://gith
 
 ## Commands
 
+- `/totemguard gui` Command for GUI
 - `/totemguard` or `/tg` - Main command for TotemGuard.
 - `/totemguard reload` - Reload the plugin configuration.
 - `/totemguard alerts` - Toggle alerts for the player.
@@ -127,59 +96,3 @@ Operators (OPs) have these permissions by default, except `TotemGuard.Debug`:
 - `TotemGuard.Database.Trim` - Access to the `/totemguard database trim` command.
 - `TotemGuard.Database.Clear` - Access to the `/totemguard database clear` command.
 - `TotemGuard.Debug` - View debug messages.
-
-## Installation
-
-1. **Prerequisites**: Ensure [PacketEvents](https://modrinth.com/plugin/packetevents) is installed.
-2. **Download**: Get the latest release from
-   the [GitHub release page](https://github.com/Bram1903/TotemGuard/releases/latest).
-3. **Install**: Place the plugin JAR file in your server's `plugins` directory.
-4. **Configure**: Customize the `config.yml` file as needed.
-5. **Reload**: Apply the changes using `/totemguard reload`.
-
-## Compiling From Source
-
-### Prerequisites
-
-- Java Development Kit (JDK) 21 or higher
-- [Git](https://git-scm.com/downloads)
-
-### Steps
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/Bram1903/TotemGuard.git
-   ```
-2. **Navigate to the Project Directory**:
-   ```bash
-   cd TotemGuard
-   ```
-3. **Compile the Source Code**:
-   Use the Gradle wrapper to build the plugin:
-
-   <details>
-   <summary><strong>Linux / macOS</strong></summary>
-
-   ```bash
-   ./gradlew build
-   ```
-   </details>
-   <details>
-   <summary><strong>Windows</strong></summary>
-
-   ```cmd
-   .\gradlew build
-   ```
-   </details>
-
-## Credits
-
-**Maintainer: [@OutDev](https://github.com/OutDev0)**  
-For their creative ideas and dedicated efforts in maintaining the project.
-
-- **[@Retrooper](https://github.com/retrooper)**: Author of [PacketEvents](https://github.com/retrooper/packetevents).
-- **[@GrimAntiCheat](https://github.com/GrimAnticheat/Grim)**: Used as reference while coding the base, and for the webhooks.
-
-## License
-
-This project is licensed under the [GPL3 License](LICENSE).
